@@ -12,8 +12,9 @@
 
 #define MAX_FRIENDS 10240
 #define MAX_CONTENTS 1024
+#define SLEEP_TIME_MICS 5000
 
-#define GETSETVAR(type, name)                                                 \
+#define GETSETVAR(type, name)                                                  \
 private:                                                                       \
     type name##_;                                                              \
                                                                                \
@@ -22,7 +23,7 @@ public:                                                                        \
     void        set_##name(const type& value) { name##_ = value; }
 
 
-#define GETSETSTR(size, name)                                                 \
+#define GETSETSTR(size, name)                                                  \
 private:                                                                       \
     char name##_[size];                                                        \
                                                                                \
