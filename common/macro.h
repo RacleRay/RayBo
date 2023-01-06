@@ -11,6 +11,7 @@
 #include <string.h>
 
 #define MAX_FRIENDS 10240
+#define MAX_CONTENTS 1024
 
 #define GETSETVAR(type, name)                                                 \
 private:                                                                       \
