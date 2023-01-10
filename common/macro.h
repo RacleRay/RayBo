@@ -15,6 +15,7 @@
 #define MAX_BUFFER_SIZE 10240
 #define MAX_LISTEN_PORTS 1000
 #define SLEEP_TIME_MICS 5000
+#define BASE_ID 10001
 
 #define GETSETVAR(type, name)                                                  \
 private:                                                                       \
