@@ -34,13 +34,10 @@ public:
     int       CreateUser(const char* user_name, const char* password, int from,
                          int reg_time);
     int       DeleteUser(int user_id);
-    int       SaveUser();  // todo
     int       LoginCheck(const char* user_name, const char* password);
     int       UserLogout(int user_id, int time_now);
     int       GetUserIdByUserName(const char* user_name);
     int       UpdateLoginTime(int user_id, int time_now);
-    // int UpdateUserLogoutTime(int user_id,int time_now);
-    // int UpdateUserFreshTime(int user_id,int time_now);
 };
 
 }  // namespace raybo
