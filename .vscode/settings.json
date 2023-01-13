@@ -2,6 +2,28 @@
     "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
     "files.associations": {
         "iostream": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "*.tcc": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "ranges": "cpp",
+        "string_view": "cpp",
+        "array": "cpp",
+        "cmath": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "cstdio": "cpp",
+        "cstdlib": "cpp",
+        "map": "cpp",
+        "vector": "cpp",
+        "exception": "cpp",
+        "initializer_list": "cpp",
+        "limits": "cpp",
+        "new": "cpp",
+        "cstdint": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "typeinfo": "cpp",
+        "utility": "cpp"
     }
 }

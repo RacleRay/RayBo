@@ -13,9 +13,11 @@
 #define MAX_FRIENDS 10240
 #define MAX_CONTENTS 1024
 #define MAX_BUFFER_SIZE 10240
+#define MAX_MESSAGES 10240
 #define MAX_LISTEN_PORTS 1000
 #define SLEEP_TIME_MICS 5000
 #define BASE_ID 10001
+#define BASE_MESSAGE_ID 100001
 
 #define GETSETVAR(type, name)                                                  \
 private:                                                                       \
