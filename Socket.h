@@ -17,11 +17,20 @@
 
 namespace raybo {
 
-#define USE_SOCKET_CHECK if (use_socket==0) { return 0; }
+#define USE_SOCKET_CHECK if ( use_socket == 0 ) { return -1; }
 
 #define SLEP 0
 #define RECV 1
 #define SEND 2
+
+class Session{
+public:
+	char user_name[256];
+	char password[256];
+	int from;
+	int cur_user_id;
+	int collect_count;
+};
 
 class RayBoSocket {
 private:
@@ -38,11 +47,11 @@ public:
     int                accept_flag;
     char               recv_buffer[MAX_BUFFER_SIZE];
     char               send_buffer[MAX_BUFFER_SIZE];
-    int                Init();
+    int                Init(int);
     int                SocketInit();
     int                SocketAccept();
     int                SocketCheckRecv();
-    int                SocketSend(int send_size);
+    int                SocketSend(int fd, int send_size);
     int                ClientClose();
     int                ServerClose();
     int                ClientSocketInit();

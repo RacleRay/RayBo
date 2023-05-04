@@ -16,7 +16,7 @@ class Config {
     GETSETVAR(int, socket_port)
     GETSETSTR(256, socket_addr)
 public:
-    int ReadConfig();
+    int ReadConfig(int);
 };
 }  // namespace raybo
 

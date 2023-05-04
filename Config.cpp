@@ -10,8 +10,12 @@
 #include <string.h>
 #include "Config.h"
 
-int raybo::Config::ReadConfig() {
-    FILE* fp = fopen("config.ini", "r");
+int raybo::Config::ReadConfig(int type) {
+    FILE* fp = NULL;
+    if (type == 1)
+        fp = fopen("server_config.ini", "r");
+    else
+        fp = fopen("client_config.ini", "r");
     if (fp == NULL) {
         return -1;
     }

@@ -10,12 +10,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-int raybo::RayBoSocket::Init() {
+// type = 1 读取server config，2 读取client config
+int raybo::RayBoSocket::Init(int type) {
     rs_flag     = SLEP;
     accept_flag = 0;
 
-    config.ReadConfig();
+    config.ReadConfig(type);
     use_socket = config.use_socket();
 
     DBG(GREEN " --- Socket init --- \n" NONE);
@@ -32,8 +32,7 @@ int raybo::RayBoSocket::SocketInit() {
     DBG(YELLOW "> socket: %d \n" NONE, server_sock);
 
     int state = -1;
-    state =
-        bind(server_sock, (struct sockaddr*)&server_addr, sizeof(server_addr));
+    state = bind(server_sock, (struct sockaddr*)&server_addr, sizeof(server_addr));
     DBG(YELLOW "> bind: %d \n" NONE, state);
     state = listen(server_sock, MAX_LISTEN_PORTS);
     DBG(YELLOW "> listen: %d \n" NONE, state);
@@ -96,7 +95,7 @@ int raybo::RayBoSocket::SocketCheckRecv() {
     return 0;
 }
 
-int raybo::RayBoSocket::SocketSend(int send_size) {
+int raybo::RayBoSocket::SocketSend(int fd, int send_size) {
     USE_SOCKET_CHECK
     if (send_size >= MAX_BUFFER_SIZE) {
         DBG(RED "!!! send_size > MAX_BUFFER_SIZE\n" NONE);
@@ -104,7 +103,7 @@ int raybo::RayBoSocket::SocketSend(int send_size) {
         return -1;
     }
 
-    int ret = send(client_sock, send_buffer, send_size, 0);
+    int ret = send(fd, send_buffer, send_size, 0);
     memset(send_buffer, 0, send_size);
     if (ret < 0) {
         DBG(RED "!!! socket send error\n" NONE);

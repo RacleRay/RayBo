@@ -44,7 +44,7 @@ int raybo::Database::execSql(std::string sql) {
         if (result) {
             int n_row   = mysql_num_rows(result);
             int n_field = mysql_num_fields(result);
-            DBG(BLUE "rows: %d, fields: %d\n" NONE, n_rows, n_field);
+            DBG(BLUE "rows: %d, fields: %d\n" NONE, n_row, n_field);
 
             while (result) {
                 // 在事务中一条条查询，不用mysql_store_result()因为一次占用太多内存
@@ -90,7 +90,7 @@ int raybo::Database::InsertUser(UserInfo& user) {
         user_info_encr[i * 2 + 1] = l + 'a';
     }
 
-    std::string insertSql = "insert into ra_user values ('";
+    std::string insertSql = "insert into ra_users values ('";
     insertSql += user_id;
     insertSql += "','";
     insertSql += user_info_encr;
@@ -114,7 +114,7 @@ int raybo::Database::GetUsersBegin() {
     if (transection() == 1) return DB_BUSY;  // 事务锁定中
 
     set_transection(1);
-    int ret = mysql_query(conn, "select * from ra_user;");
+    int ret = mysql_query(conn, "select * from ra_users;");
     if (ret) {
         set_transection(0);
         return DB_QUERY_FAIL;
