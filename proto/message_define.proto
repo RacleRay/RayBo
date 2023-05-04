@@ -112,7 +112,6 @@ message CommonReq {
 	optional PublishMessageReq publish_message_req = 7;
 	optional GetPhotoReq get_photo_req = 8;
 	optional GetMessageListReq get_message_list_req = 9;
-
 }
 
 message CommonRsp {
@@ -137,7 +136,6 @@ message GetUserIdByNameRsp {
 	optional int32 ret = 2;
 	optional int32 user_id = 3;
 }
-
 
 message CreateUserReq {
 	optional MsgHeader header = 1;
